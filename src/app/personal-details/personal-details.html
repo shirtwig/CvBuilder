@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="form-card">
+    <h2>פרטים אישיים </h2>
+    <form #PersonalDetailsForm="ngForm">
+
+      <div class="form-group">
+        <label for="fullname">שם מלא:</label>
+        <input type="text" id="fullname" name="fullname" [(ngModel)]="PersonalDetails.fullname" (ngModelChange)="notifyChange()" required pattern="^[a-zA-Z\s]+$" minlength="3" #nameRef="ngModel">
+      </div>
+      @if (nameRef.invalid && nameRef.touched) {
+        <div class="error-msg">
+          @if (nameRef.errors?.['required']) { <span>חובה להזין שם.</span> }
+          @if (nameRef.errors?.['minlength']) { <span>השם חייב להכיל לפחות 3 תווים.</span> }
+        </div>
+      }
+
+      <div class="form-group">
+        <label for="email">כתובת מייל:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="PersonalDetails.email" (ngModelChange)="notifyChange()" required email #emailRef="ngModel">
+      </div>
+      @if (emailRef.invalid && emailRef.touched) {
+        <div class="error-msg">
+          @if (emailRef.errors?.['required']) { <span>חובה להזין כתובת אימייל.</span> }
+          @if (emailRef.errors?.['email']) { <span>יש להזין כתובת אימייל תקינה.</span> }
+        </div>
+      }
+
+      <div class="form-group">
+        <label for="phone">מספר טלפון:</label>
+        <input type="text" id="phone" name="phone" [(ngModel)]="PersonalDetails.phone" (ngModelChange)="notifyChange()" required pattern="^[0-9\-+\s()]*$" minlength="9" #phoneRef="ngModel">
+      </div>
+      @if (phoneRef.invalid && phoneRef.touched) {
+        <div class="error-msg">
+          @if (phoneRef.errors?.['required']) { <span>חובה להזין מספר טלפון.</span> }
+          @if (phoneRef.errors?.['pattern']) { <span>יש להזין מספר טלפון תקין.</span> }
+          @if (phoneRef.errors?.['minlength']) { <span>מספר הטלפון חייב להכיל לפחות 9 תווים.</span> }
+        </div>
+      }
+
+      <div class="form-group">
+        <label for="description">תיאור:</label>
+        <textarea id="description" name="description" [(ngModel)]="PersonalDetails.description" (ngModelChange)="notifyChange()" required minlength="10" #descriptionRef="ngModel"></textarea>
+      </div>
+      @if (descriptionRef.invalid && descriptionRef.touched) {
+        <div class="error-msg">
+          @if (descriptionRef.errors?.['required']) { <span>חובה להזין תיאור.</span> }
+          @if (descriptionRef.errors?.['minlength']) { <span>התיאור חייב להכיל לפחות 10 תווים.</span> }
+        </div>
+      }
+
+    </form>
+</div>

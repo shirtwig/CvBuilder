@@ -1,0 +1,17 @@
+<div class="main-layout">
+  <div class="editor-section">
+    <h1>CV Builder</h1>
+
+    <section class="form-container">
+      <app-personal-details (dataChanged)="updateCVData($event)"></app-personal-details>
+    </section>
+
+    <section class="form-container">
+        <app-education (educationDataChanged)="updateCVData($event)"></app-education>
+    </section>
+  </div>
+
+  <div class="preview-section">
+    <app-cv-preview [displayData]="currentCVData"></app-cv-preview>
+  </div>
+</div>

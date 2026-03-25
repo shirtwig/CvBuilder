@@ -1,0 +1,53 @@
+<div class="cv-paper">
+  <h2>קורות חיים</h2>
+
+  <section class="cv-section">
+    <h3 class="name-title">{{ displayData.fullname || 'שם מלא' }}</h3>
+    <div class="contact-info">
+      <span>{{ displayData.email || 'אימייל' }}</span> |
+      <span>{{ displayData.phone || 'טלפון' }}</span>
+    </div>
+    <p>{{ displayData.description || 'תיאור אישי...' }}</p>
+  </section>
+
+  <hr class="separator">
+
+  <section class="cv-section">
+    <h3> השכלה</h3>
+
+    @for (edu of displayData.educations; track $index) {
+      <div class="education-entry">
+        <div class="entry-header">
+          <strong>{{ edu.institution || 'מוסד לימודים' }}</strong>
+        </div>
+
+        <div>
+          <span>{{ edu.startDate || 'תאריך התחלה' }} - {{ edu.status === 'לומדת כרגע' ? 'עדיין בלימודים' : (edu.endDate || 'תאריך סיום') }}</span>
+        </div>
+
+        <div>
+          <span>{{ edu.degree || 'תואר' }}</span> ב-<span>{{ edu.fieldOfStudy || 'תחום לימוד' }}</span>
+        </div>
+
+        @if (edu.isExcellence) { <b style="color: gold;"> ★ מצטיינת</b> }
+
+        @if (edu.gradeAverage) {
+          <div>ממוצע: {{ edu.gradeAverage }}</div>
+        }
+
+        <p>{{ edu.description || 'תיאור הלימודים...' }}</p>
+
+        @if (edu.courses && edu.courses.length > 0) {
+          <div class="courses-preview">
+            <strong>קורסים: </strong>
+            <div class="tags-wrapper">
+              @for (course of edu.courses; track $index) {
+                @if (course) { <span class="course-tag">{{ course }}</span> }
+              }
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </section>
+</div>

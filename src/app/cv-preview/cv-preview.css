@@ -1,0 +1,102 @@
+.cv-paper {
+  background: #fdfbf7;
+  min-height: 842px;
+  box-shadow: 0 10px 30px rgba(107, 91, 71, 0.1);
+  direction: rtl;
+  font-family: 'Segoe UI', serif;
+  color: #4a443f;
+  line-height: 1.6;
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #6b5b47;
+  letter-spacing: 3px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #d8cfc4;
+  padding-bottom: 15px;
+}
+
+.cv-section h3 {
+  font-size: 20px;
+  color: #8c7e6d;
+  border-right: 4px solid #b5a48b;
+  padding-right: 15px;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.name-title {
+  font-size: 34px;
+  color: #1e1e57;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: #8c7e6d;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.education-entry {
+  margin-bottom: 40px;
+  padding-right: 20px;
+  position: relative;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.entry-header strong {
+  font-size: 19px;
+  color: #5c544b;
+}
+
+.dates {
+  font-size: 14px;
+  color: #a69a8b;
+}
+
+.institution {
+  color: #b5a48b;
+  font-weight: 600;
+  margin-top: 5px;
+  display: block;
+}
+
+.grade-info {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #7a8c7a;
+}
+
+.courses-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 15px;
+}
+
+.course-tag {
+  background: #ffffff;
+  border: 1px solid #e2d9cf;
+  color: #8c7e6d;
+  padding: 5px 15px;
+  border-radius: 4px;
+  font-size: 13px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.02);
+}
+
+.excellence-badge {
+  color: #d4af37;
+  font-weight: bold;
+  margin-right: 10px;
+}

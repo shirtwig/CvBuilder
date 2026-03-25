@@ -1,0 +1,118 @@
+<div [formGroup]="educationForm" class="education-form">
+  <h2>פרטי השכלה</h2>
+
+  <div formArrayName="educations">
+    @for (edu of educations.controls; track $index; let i = $index) {
+      <div [formGroupName]="i" class="education-card">
+        <div class="card-header">
+          <h3>השכלה #{{ i + 1 }}</h3>
+          @if (educations.length > 1) {
+            <button type="button" (click)="removeEducation(i)" class="btn-remove-edu">מחק השכלה 🗑️</button>
+          }
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>מוסד לימודים:</label>
+            <input formControlName="institution" type="text" prequired>
+          </div>
+          @if (edu.get('institution')?.invalid && edu.get('institution')?.touched) {
+            <small class="error-text">שם המוסד חייב להכיל רק אותיות ורווחים.</small>
+          }
+
+
+
+          <div class="form-group">
+            <label>סוג תואר:</label>
+            <input formControlName="degree" type="text" required>
+          </div>
+
+
+
+          <div class="form-group">
+            <label>תחום לימוד:</label>
+            <input formControlName="fieldOfStudy" type="text" required>
+          </div>
+          @if (edu.get('fieldOfStudy')?.invalid && edu.get('fieldOfStudy')?.touched) {
+            <small class="error-text">תחום הלימוד חייב להכיל רק אותיות ורווחים.</small>
+          }
+
+          <div class="form-group">
+            <label>תאריך התחלה:</label>
+            <input formControlName="startDate" type="date" formControlName="startDate"  required>
+          </div>
+
+          <div class="form-group">
+            <label>סטטוס:</label>
+            <select formControlName="status">
+              <option value="סיימתי">סיימתי</option>
+              <option value="לומדת כרגע">לומדת כרגע</option>
+            </select>
+          </div>
+
+          @if (edu.get('status')?.value !== 'לומדת כרגע') {
+            <div class="form-group">
+              <label>תאריך סיום:</label>
+              <input formControlName="endDate" type="date" formControlName="endDate" required>
+            </div>
+            @if (edu.errors?.['invalidDateOrder']) {
+              <span style="color: red;">תאריך הסיום חייב להיות אחרי תאריך ההתחלה!</span>
+            }
+          }
+
+
+          <div class="form-group">
+            <label>ממוצע ציונים:</label>
+            <input formControlName="gradeAverage" type="number" required>
+            @if (edu.get('gradeAverage')?.invalid && edu.get('gradeAverage')?.touched) {
+              <small class="error-text">הציון חייב להיות בין 0 ל-100.</small>
+            }
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label>
+              <input type="checkbox" formControlName="isExcellence"> הצטיינות
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label>תיאור קצר:</label>
+          <textarea formControlName="description" rows="2" minlength="10" required></textarea>
+        </div>
+        @if (edu.get('description')?.invalid && edu.get('description')?.touched) {
+          <small class="error-text">התיאור חייב להכיל לפחות 10 תוויםד.</small>
+        }
+
+        <div formArrayName="courses" class="courses-section">
+          <h4>קורסים מרכזיים:</h4>
+          @for (course of getCourses(i).controls; track $index; let j = $index) {
+            <div class="course-row">
+              <input [formControlName]="j" placeholder="שם הקורס"  required>
+              @if (getCourses(i).length > 1) {
+                <button type="button" (click)="removeCourse(i, j)" class="btn-remove-course">"X"</button>
+              }
+            </div>
+          }
+
+          <button type="button" (click)="addCourse(i)" class="btn-add-course">+ הוסף קורס</button>
+        </div>
+      </div>
+    }
+  </div>
+
+<button
+  type="button"
+  (click)="addEducation()"
+  class="btn-add-edu"
+  [disabled]="educationForm.invalid"
+  [style.opacity]="educationForm.invalid ? '0.5' : '1'"
+  [style.cursor]="educationForm.invalid ? 'not-allowed' : 'pointer'">
+  + הוסף פריט השכלה נוסף
+</button>
+
+@if (educationForm.invalid) {
+  <p style="color: orange; font-size: 0.8em; text-align: center;">
+    * יש למלא את כל שדות החובה כדי להוסיף השכלה נוספת
+  </p>
+}</div>

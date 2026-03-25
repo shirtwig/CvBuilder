@@ -1,0 +1,25 @@
+:root {
+  --primary-color: #34495e; /* צבע כותרות יוקרתי */
+  --secondary-color: #2ecc71; /* צבע כפתורים ירוק רענן */
+  --bg-color: #f4f6f8; /* רקע עדין לכל האתר */
+  --card-bg: #ffffff; /* רקע לבן לטפסים */
+  --shadow: 0 4px 6px rgba(0,0,0,0.05);
+  --border-radius: 12px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  direction: rtl; /* עברית */
+}
+
+/* כותרת האתר */
+h1#site-title {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 2.5em;
+  padding: 20px;
+  margin: 0;
+}

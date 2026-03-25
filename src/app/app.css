@@ -1,0 +1,28 @@
+/* app.css */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* חלוקה ל-2 טורים */
+  gap: 30px;
+  padding: 30px;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+}
+
+.editor-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.preview-section {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.form-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  padding: 15px;
+}

@@ -1,0 +1,65 @@
+/* מיכל ראשי המפריד בין הטופס לתצוגה */
+.container {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  direction: rtl; /* יישור לימין עבור עברית */
+}
+
+/* עיצוב הטופס */
+.form-card {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box; /* חשוב כדי שהפדינג לא ינפח את השדה */
+  font-size: 16px;
+}
+
+/* עיצוב שדות לא תקינים */
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 2px solid #ff4d4d;
+}
+
+/* עיצוב אזור התצוגה המקדימה (Preview) */
+.preview-card {
+  flex: 1;
+  background: white;
+  padding: 25px;
+  border: 2px dashed #007bff;
+  border-radius: 12px;
+  min-height: 300px;
+}
+
+.preview-card h3 {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.error-msg {
+  color: #ff4d4d;
+  font-size: 12px;
+  margin-top: 4px;
+}
