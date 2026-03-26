@@ -1,59 +1,36 @@
-# CvBuilder
+📄 CvBuilder - יצירת קורות חיים בזמן אמת
+הפרויקט הזה הוא אפליקציית אנגולר שמאפשרת למשתמשים ליצור קורות חיים מעוצבים בקלות. הייחודיות פה היא שכל מה שכותבים בטפסים מופיע מיד בצד השני של המסך בתצוגה מקדימה, בלי שצריך לרענן את הדף.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+✨ מה המערכת יודעת לעשות?
+עדכון חי (Live Preview): סנכרון מלא בין הטפסים לתצוגת ה-PDF בזמן אמת.
 
-## Development server
+שילוב סוגי טפסים: השתמשתי גם ב-Template Driven לפרטים האישיים וגם ב-Reactive Forms לחלק של ההשכלה כדי להראות שליטה בשתי השיטות.
 
-To start a local development server, run:
+הוספה דינמית: בחלק של ההשכלה אפשר להוסיף כמה מוסדות לימוד שרוצים, ובתוך כל אחד מהם להוסיף רשימת קורסים דינמית.
 
-```bash
-ng serve
-```
+בדיקות תקינות (Validations): המערכת בודקת שהאימייל תקין, שהטלפון מכיל רק ספרות, ושהציונים הם בין 0 ל-100.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+לוגיקה חכמה: למשל, אם מסמנים שעדיין לומדים ("לומדת כרגע"), שדה תאריך הסיום הופך ללא חובה או נעלם.
 
-## Code scaffolding
+🛠️ טכנולוגיות שהשתמשתי בהן
+Angular: שימוש ב-Standalone Components ובגרסה עדכנית (21).
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Forms Modules: עבודה עם FormsModule ו-ReactiveFormsModule במקביל.
 
-```bash
-ng generate component component-name
-```
+Data Binding: העברת נתונים חלקה בין רכיבי הקלט לתצוגה (Parent-Child Communication).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+CSS Flexbox: לעיצוב נקי ומודרני שמחלק את המסך בצורה נוחה בין הטופס לתצוגה.
 
-```bash
-ng generate --help
-```
+🏗️ מבנה הקומפוננטות
+Personal Details: טופס לפרטים הבסיסיים כמו שם, אימייל וטלפון (בשיטת Template-driven).
 
-## Building
+Education: חלק מורכב המאפשר הוספה ומחיקה של פריטים בצורה דינמית (בשיטת Reactive Forms).
 
-To build the project run:
+CV Preview: רכיב תצוגה שמקבל את כל המידע ומציג אותו כקורות חיים מעוצבים.
 
-```bash
-ng build
-```
+🚀 איך מריצים?
+בצעו Clone למאגר למחשב שלכם.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+הריצו את הפקודה npm install כדי להתקין את כל הספריות.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+הריצו ng serve ופתחו את הדפדפן בכתובת http://localhost:4200.
